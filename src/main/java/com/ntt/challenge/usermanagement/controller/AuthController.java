@@ -15,11 +15,9 @@ import java.util.Map;
 public class AuthController {
 
     private final AuthenticationService authenticationService;
-    private final UserService userService;
 
     public AuthController(AuthenticationService authenticationService, UserService userService) {
         this.authenticationService = authenticationService;
-        this.userService = userService;
     }
 
     @PostMapping("/login")
@@ -30,10 +28,5 @@ public class AuthController {
     @PostMapping("/me")
     public ResponseEntity<?> me(@RequestBody Map<String, String> payload) {
         return ResponseEntity.ok(authenticationService.getAuthenticatedUser(payload.get("accessToken")));
-    }
-
-    @GetMapping("/users")
-    public ResponseEntity<List<Map<String, Object>>> getAllUsers() {
-        return ResponseEntity.ok(userService.getAllUsers());
     }
 }
