@@ -3,11 +3,9 @@ package com.ntt.challenge.usermanagement.controller;
 import com.ntt.challenge.usermanagement.dto.AuthRequest;
 import com.ntt.challenge.usermanagement.dto.AuthResponse;
 import com.ntt.challenge.usermanagement.service.AuthenticationService;
-import com.ntt.challenge.usermanagement.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -16,7 +14,7 @@ public class AuthController {
 
     private final AuthenticationService authenticationService;
 
-    public AuthController(AuthenticationService authenticationService, UserService userService) {
+    public AuthController(AuthenticationService authenticationService) {
         this.authenticationService = authenticationService;
     }
 
